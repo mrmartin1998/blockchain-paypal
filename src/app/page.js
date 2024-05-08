@@ -374,7 +374,7 @@ const Page = () => {
             Add Name
           </button>
         </section>
-
+  
         {/* Create Payment Request Section */}
         <section>
           <h2 className="text-2xl font-semibold">Create a Payment Request</h2>
@@ -403,7 +403,7 @@ const Page = () => {
             Create Request
           </button>
         </section>
-
+  
         {/* Pay Request Section */}
         <section>
           <h2 className="text-2xl font-semibold">Pay a Request</h2>
@@ -425,7 +425,7 @@ const Page = () => {
             Pay
           </button>
         </section>
-
+  
         {/* View Requests and History */}
         <section>
           <h2 className="text-2xl font-semibold">Requests and History</h2>
@@ -436,7 +436,7 @@ const Page = () => {
             View History
           </button>
         </section>
-
+  
         {/* Requests Display */}
         {requests.length > 0 && (
           <section>
@@ -450,9 +450,24 @@ const Page = () => {
             </ul>
           </section>
         )}
+  
+        {/* Transaction History Display */}
+        {history.length > 0 && (
+          <section>
+            <h3 className="text-xl font-semibold">Transaction History</h3>
+            <ul>
+              {history.map((record, index) => (
+                <li key={index}>
+                  Action: {record.action}, Amount: {web3.utils.fromWei(record.amount.toString(), 'ether')} ETH, Message: {record.message}, Counterparty: {record.otherPartyAddress}, Name: {record.otherPartyName}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </div>
     </div>
   );
+  
 };
 
 export default Page;
