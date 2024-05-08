@@ -59,26 +59,25 @@ function createRequest(address user, uint256 _amount, string memory _message) pu
 }
 
 function payRequest(uint256 _request) public payable {
-    require(_request < requests[msg.sender].length, "No Such Request");
+    require(_request < requests[msg.sender].length, "Invalid request ID");
 
     request[] storage myRequests = requests[msg.sender];
     request storage payableRequest = myRequests[_request];
 
-    // Debugging log
-    emit RequestPaid(msg.sender, payableRequest.requestor, msg.value);
+    uint256 toPay = payableRequest.amount;
 
-    uint256 toPay = payableRequest.amount * 1 ether;  // Or remove * 1 ether if already in correct units
-    require(msg.value == toPay, "Pay Correct Amount");
+    require(msg.value == toPay, "Incorrect payment amount");
 
-    payable(payableRequest.requestor).transfer(msg.value);
+    (bool success, ) = payable(payableRequest.requestor).call{value: msg.value}("");
+    require(success, "Transfer failed");
+
+    emit RequestPaid(msg.sender, payableRequest.requestor, toPay);
 
     addHistory(msg.sender, payableRequest.requestor, payableRequest.amount, payableRequest.message);
 
-    // Remove the paid request
     myRequests[_request] = myRequests[myRequests.length - 1];
     myRequests.pop();
 }
-
 function addHistory(address sender, address receiver, uint256 _amount, string memory _message) private {
         
     sendReceive memory newSend;

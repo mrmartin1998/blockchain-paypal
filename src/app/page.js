@@ -246,7 +246,7 @@ const contractAbi = [
   }
 ];
 
-const contractAddress = '0x3846Ccc0C23bE16F7AFc29028030F5115D8f2992';
+const contractAddress = '0x9379D959f29b568f9e204622FE87cb636019B2ab';
 
 const Page = () => {
   const [web3, setWeb3] = useState(null);
@@ -303,29 +303,31 @@ const Page = () => {
   };
 
   const payRequest = async () => {
-    if (!payRequestInput || isNaN(payRequestInput) || payRequestInput < 0) {
+    const requestID = parseInt(payRequestInput, 10);
+    if (isNaN(requestID) || requestID < 0) {
       console.error('Invalid request ID');
       return;
     }
-
-    if (!payAmountInput || isNaN(payAmountInput) || payAmountInput <= 0) {
+  
+    const amount = parseFloat(payAmountInput);
+    if (isNaN(amount) || amount <= 0) {
       console.error('Invalid or empty amount');
       return;
     }
-
+  
     try {
-      console.log('Paying request ID:', payRequestInput);
-      const etherValue = web3.utils.toWei(payAmountInput, 'ether');
-      const result = await contract.methods.payRequest(payRequestInput).send({
+      console.log('Paying request ID:', requestID);
+      const etherValue = web3.utils.toWei(amount.toString(), 'ether');
+      const result = await contract.methods.payRequest(requestID).send({
         from: userAccount,
-        value: etherValue,
+        value: etherValue
       });
       console.log('Request paid:', result);
       viewPaymentRequests();
     } catch (error) {
       console.error('Error paying request:', error);
     }
-  };
+  };  
 
   const viewPaymentRequests = async () => {
     try {
