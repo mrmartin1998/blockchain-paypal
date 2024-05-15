@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Blockchain PayPal DApp
 
-## Getting Started
+## Introduction
 
-First, run the development server:
+Welcome to **Blockchain PayPal**, a decentralized payment platform built on the Ethereum blockchain. This project demonstrates my capabilities in full-stack development, smart contract development, and blockchain integration. It provides a secure and transparent system for creating and managing payment requests and transactions using blockchain technology.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Decentralized Payments**: A fully decentralized platform for managing payment requests and transactions.
+- **Smart Contracts**: Secure and transparent management of payments using Ethereum smart contracts.
+- **User Authentication**: Wallet-based authentication for secure and private user identity management.
+- **Payment Requests**: Functionality to create and manage payment requests.
+- **Transaction History**: Detailed transaction history for all payments and requests.
+- **Responsive Design**: A user-friendly interface built with modern web technologies.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Technology Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Frontend
+- **React.js**: A JavaScript library for building user interfaces.
+- **Next.js**: A React framework for server-side rendering and static site generation.
+- **Tailwind CSS**: A utility-first CSS framework for rapid UI development.
+- **DaisyUI**: A component library based on Tailwind CSS.
 
-## Learn More
+### Backend
+- **Next.js API Routes**: Serverless functions for handling backend logic.
+- **MongoDB**: A NoSQL database for storing application data.
+- **Mongoose**: An ODM (Object Data Modeling) library for MongoDB.
+- **Vercel**: A platform for hosting the Next.js application.
 
-To learn more about Next.js, take a look at the following resources:
+### Blockchain
+- **Truffle Framework**: A development environment for Ethereum smart contracts.
+- **Ganache**: A personal blockchain for Ethereum development.
+- **Sepolia Testnet**: A public Ethereum test network for testing smart contracts.
+- **Solidity**: The programming language for writing Ethereum smart contracts.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Smart Contracts
 
-## Deploy on Vercel
+The core of the Blockchain PayPal DApp is the `Paypal` smart contract. It manages the creation, payment, and tracking of payment requests. Key functionalities include:
+- **Name Registration**: Registering a user’s name to their wallet address.
+- **Payment Requests**: Creating payment requests specifying the amount and message.
+- **Request Payment**: Paying a specific request with ETH.
+- **Transaction History**: Viewing the transaction history of payments and requests.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Frontend Implementation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The frontend is built using React.js and Next.js, with Tailwind CSS and DaisyUI for styling. It interacts with the smart contract to handle user registration, payment requests, and transaction history.
+
+### Key Components
+
+1. **Add Name to Wallet**: Allows users to associate a name with their wallet address.
+2. **Create Payment Request**: Users can create payment requests specifying the recipient, amount, and message.
+3. **Pay Request**: Functionality to pay an existing payment request.
+4. **View Requests and History**: Display current payment requests and transaction history.
+
+## How to Run the Project
+
+1. **Clone the Repository**:
+    ```sh
+    git clone https://github.com/mrmartin1998/blockchain-paypal.git
+    cd blockchain-paypal
+    ```
+
+2. **Install Dependencies**:
+    ```sh
+    npm install
+    ```
+
+3. **Start Ganache** (Personal Ethereum Blockchain):
+    ```sh
+    ganache-cli
+    ```
+
+4. **Deploy Smart Contracts**:
+    ```sh
+    truffle migrate --network development
+    ```
+
+5. **Run the Application**:
+    ```sh
+    npm run dev
+    ```
+
+6. **Open in Browser**:
+    Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+## Conclusion
+
+This project demonstrates my ability to develop a full-stack decentralized application using modern technologies. It showcases my skills in smart contract development, blockchain integration, and building responsive web applications. Thank you for reviewing my project!
+
+---
+
+*Feel free to reach out to me for any questions or further discussions about this project.*
+
+---
+
+**Contact Information:**
+
+- **Email**: martinemilbrabenec@gmail.com
+- **LinkedIn**: [Martin Emil Brabenec](https://www.linkedin.com/in/martin-emil-brabenec-33b818148/)
+- **GitHub**: [mrmartin1998](https://github.com/mrmartin1998/)
